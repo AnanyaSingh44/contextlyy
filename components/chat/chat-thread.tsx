@@ -166,7 +166,7 @@ const ChatComposer: FC<{
   return (
     <ComposerPrimitive.Root className="relative flex w-full flex-col rounded-2xl border border-input bg-card shadow-sm transition-shadow focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/20">
       <ComposerPrimitive.Input
-        placeholder="Message DevLM..."
+        placeholder="Message Contextlyy..."
         className="min-h-[52px] w-full resize-none bg-transparent px-4 pt-3.5 pb-2 text-sm outline-none placeholder:text-muted-foreground"
         rows={1}
         autoFocus
@@ -231,7 +231,7 @@ const AssistantMessage: FC = () => {
         </Avatar>
         <div className="min-w-0 flex-1">
           <p className="mb-1 text-xs font-medium text-muted-foreground">
-            DevLM
+            Contextlyy
           </p>
           <div className="wrap-break-word text-foreground leading-relaxed">
             <MessagePrimitive.Parts

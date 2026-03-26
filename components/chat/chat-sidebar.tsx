@@ -90,7 +90,7 @@ export function ChatSidebar({
             <MessagesSquare className="h-4 w-4 text-primary-foreground" />
           </div>
           <span className="font-heading text-base font-semibold tracking-tight">
-            DevLM
+            Contextlyy
           </span>
         </div>
         <Button variant="ghost" size="icon-sm" onClick={onToggle}>

@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
-  title: "DevLM",
+  title: "contextlyy",
   description: "AI workspace for conversations and indexed context",
   icons: {
     icon: "/icon.svg",

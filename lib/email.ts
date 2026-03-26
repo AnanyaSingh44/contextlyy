@@ -20,7 +20,7 @@ export interface SendEmailOptions {
 export async function sendEmail({ to, subject, text, html }: SendEmailOptions) {
   try {
     const info = await transporter.sendMail({
-      from: `"${process.env.SMTP_FROM_NAME || "DevLM"}" <${process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER}>`,
+      from: `"${process.env.SMTP_FROM_NAME || "contextlyy"}" <${process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER}>`,
       to,
       subject,
       text,
@@ -50,7 +50,7 @@ function emailWrapper(title: string, bodyHtml: string): string {
     <tr>
       <td style="background-color:#1a3d2b;padding:32px;text-align:center;border-radius:12px 12px 0 0;">
         <div style="display:inline-block;width:44px;height:44px;background-color:#3a9e6e;border-radius:10px;text-align:center;line-height:44px;margin-bottom:12px;font-size:22px;font-weight:700;color:#ffffff;">D</div>
-        <div style="color:#ffffff;font-size:22px;font-weight:700;letter-spacing:-0.3px;">DevLM</div>
+        <div style="color:#ffffff;font-size:22px;font-weight:700;letter-spacing:-0.3px;">Contextlyy</div>
       </td>
     </tr>
     <!-- Body -->
@@ -63,7 +63,7 @@ function emailWrapper(title: string, bodyHtml: string): string {
     <tr>
       <td style="background-color:#f8faf9;padding:24px;text-align:center;border:1px solid #d1e8db;border-top:none;border-radius:0 0 12px 12px;">
         <p style="color:#6b7280;font-size:12px;margin:0;line-height:1.6;">
-          This is an automated message from DevLM. Please do not reply to this email.
+          This is an automated message from Contextlyy. Please do not reply to this email.
         </p>
       </td>
     </tr>
@@ -76,7 +76,7 @@ export function getVerificationEmailTemplate(verificationUrl: string) {
   const body = `
     <h2 style="color:#111827;margin:0 0 8px;font-size:22px;font-weight:700;">Verify your email address</h2>
     <p style="color:#374151;margin:0 0 24px;font-size:15px;line-height:1.6;">
-      Thanks for signing up! Click the button below to verify your email and get automatically signed in to DevLM.
+      Thanks for signing up! Click the button below to verify your email and get automatically signed in to Contextlyy.
     </p>
     <div style="text-align:center;margin:32px 0;">
       <a href="${verificationUrl}"
@@ -85,7 +85,7 @@ export function getVerificationEmailTemplate(verificationUrl: string) {
       </a>
     </div>
     <p style="color:#6b7280;font-size:13px;margin:0 0 12px;line-height:1.6;">
-      This link will expire in <strong>1 hour</strong>. If you didn&apos;t create a DevLM account, you can safely ignore this email.
+      This link will expire in <strong>1 hour</strong>. If you didn&apos;t create a Contextlyy account, you can safely ignore this email.
     </p>
     <p style="color:#9ca3af;font-size:12px;margin:0;line-height:1.5;word-break:break-all;">
       Or copy this link into your browser:<br>
@@ -94,9 +94,9 @@ export function getVerificationEmailTemplate(verificationUrl: string) {
   `;
 
   return {
-    subject: "Verify your email address – DevLM",
+    subject: "Verify your email address – Contextlyy",
     html: emailWrapper("Verify Your Email", body),
-    text: `Verify your DevLM email by clicking: ${verificationUrl}\n\nThis link expires in 1 hour.`,
+    text: `Verify your Contextlyy email by clicking: ${verificationUrl}\n\nThis link expires in 1 hour.`,
   };
 }
 
@@ -124,7 +124,7 @@ export function getOTPEmailTemplate(
   `;
 
   return {
-    subject: `${title} – DevLM`,
+    subject: `${title} – Contextlyy`,
     html: emailWrapper(title, body),
     text: `Your ${title} is: ${otp}\n\nThis code expires in ${expiresInMinutes} minutes. If you didn't request this, please ignore this email.`,
   };
@@ -134,7 +134,7 @@ export function getPasswordResetEmailTemplate(resetUrl: string) {
   const body = `
     <h2 style="color:#111827;margin:0 0 8px;font-size:22px;font-weight:700;">Reset your password</h2>
     <p style="color:#374151;margin:0 0 24px;font-size:15px;line-height:1.6;">
-      We received a request to reset your DevLM password. Click the button below to choose a new password.
+      We received a request to reset your Contextlyy password. Click the button below to choose a new password.
     </p>
     <div style="text-align:center;margin:32px 0;">
       <a href="${resetUrl}"
@@ -152,9 +152,9 @@ export function getPasswordResetEmailTemplate(resetUrl: string) {
   `;
 
   return {
-    subject: "Reset your password – DevLM",
+    subject: "Reset your password – Contextlyy",
     html: emailWrapper("Reset Your Password", body),
-    text: `Reset your DevLM password by clicking: ${resetUrl}\n\nThis link expires in 1 hour. If you didn't request this, please ignore this email.`,
+    text: `Reset your Contextlyy password by clicking: ${resetUrl}\n\nThis link expires in 1 hour. If you didn't request this, please ignore this email.`,
   };
 }
 
@@ -166,7 +166,7 @@ export function getWelcomeEmailTemplate(
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "";
 
   const body = `
-    <h2 style="color:#111827;margin:0 0 8px;font-size:22px;font-weight:700;">Welcome to DevLM, ${name || "there"}!</h2>
+    <h2 style="color:#111827;margin:0 0 8px;font-size:22px;font-weight:700;">Welcome to Contextlyy, ${name || "there"}!</h2>
     <p style="color:#374151;margin:0 0 24px;font-size:15px;line-height:1.6;">
       Your account has been created by an administrator. Here are your account details:
     </p>
@@ -184,14 +184,14 @@ export function getWelcomeEmailTemplate(
     <div style="text-align:center;margin:32px 0;">
       <a href="${appUrl}/login"
          style="display:inline-block;background-color:#3a9e6e;color:#ffffff;padding:14px 36px;text-decoration:none;border-radius:8px;font-weight:600;font-size:15px;letter-spacing:0.1px;">
-        Sign In to DevLM
+        Sign In to Contextlyy
       </a>
     </div>
   `;
 
   return {
-    subject: "Welcome to DevLM – Your account is ready",
-    html: emailWrapper("Welcome to DevLM", body),
-    text: `Welcome to DevLM, ${name || "there"}!\n\nYour account has been created.\nEmail: ${email}${temporaryPassword ? `\nTemporary Password: ${temporaryPassword}\n\nPlease change your password after signing in.` : ""}\n\nSign in at: ${appUrl}/login`,
+    subject: "Welcome to Contextlyy – Your account is ready",
+    html: emailWrapper("Welcome to contextlyy", body),
+    text: `Welcome to contextlyy, ${name || "there"}!\n\nYour account has been created.\nEmail: ${email}${temporaryPassword ? `\nTemporary Password: ${temporaryPassword}\n\nPlease change your password after signing in.` : ""}\n\nSign in at: ${appUrl}/login`,
   };
 }

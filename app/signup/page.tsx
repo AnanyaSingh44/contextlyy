@@ -98,7 +98,7 @@ export default function SignUpPage() {
             <span className="text-lg font-bold text-primary-foreground">D</span>
           </div>
           <CardTitle className="text-2xl font-heading">Create your account</CardTitle>
-          <CardDescription>Get started with DevLM for free</CardDescription>
+          <CardDescription>Get started with Contextlyy for free</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">

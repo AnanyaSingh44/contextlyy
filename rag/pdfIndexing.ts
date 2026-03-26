@@ -1,5 +1,8 @@
 import "dotenv/config";
-import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
+import fs from "fs";
+// @ts-ignore
+import pdfParse from "pdf-parse";
+import { Document } from "@langchain/core/documents";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { storeDocuments } from "@/rag/vectorStore";
 import { prisma } from "@/lib/prisma";
@@ -13,8 +16,14 @@ export async function indexPDF(filePath: string, sourceId: string, threadId?: st
   });
 
   try {
-    const loader = new PDFLoader(filePath);
-    const docs = await loader.load();
+    const buffer = fs.readFileSync(filePath);
+    const parsed = await pdfParse(buffer);
+    const docs = [
+      new Document({
+        pageContent: parsed.text,
+        metadata: { source: filePath },
+      }),
+    ];
 
     const splitter = new RecursiveCharacterTextSplitter({
       chunkSize: 1000,
@@ -22,7 +31,7 @@ export async function indexPDF(filePath: string, sourceId: string, threadId?: st
     });
 
     const chunks = await splitter.splitDocuments(docs);
-
+console.log(`✅ PDF parsed: ${chunks.length} chunks created`);
     const enrichedChunks = chunks.map((doc) => {
       const page = doc.metadata?.page ?? doc.metadata?.loc?.pageNumber ?? null;
 

@@ -1,4 +1,4 @@
-# DevLM
+# Contextlyy
 
 AI chat platform that lets you build a personal knowledge base and chat over it. Index documents, websites, GitHub repos, and YouTube videos, then query them through a streaming AI assistant with built-in web search.
 
@@ -8,7 +8,7 @@ AI chat platform that lets you build a personal knowledge base and chat over it.
 
 ## Stack
 
-- Next.js 16, React 19, Tailwind CSS 4
+- Next.js 16, React 19, Tailwind CSS 4 
 - PostgreSQL with Prisma
 - Better Auth for email/password auth with OTP and magic links
 - Qdrant for vector storage
@@ -20,8 +20,8 @@ AI chat platform that lets you build a personal knowledge base and chat over it.
 ## Run
 
 ```bash
-git clone https://github.com/Devendraxp/devlm
-cd devlm
+git clone https://github.com/AnanyaSingh44/contextlyy.git
+cd Contextlyy
 pnpm install
 cp .env.example .env.local
 pnpm dev
